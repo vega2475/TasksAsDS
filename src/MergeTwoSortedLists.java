@@ -52,4 +52,29 @@ public class MergeTwoSortedLists {
         return mergedList;
     }
 
-}
+    public static MyLinkedList mergeTwoMyLinkedLists(MyLinkedList l1, MyLinkedList l2){
+        MyLinkedList myMergedLinkedList = new MyLinkedList();
+        while(l1.size > 0 && l2.size > 0){
+            if (l1.get(0) < l2.get(0)) {
+                myMergedLinkedList.add(l1.get(0));
+                l1.remove(0);
+
+            } else {
+                myMergedLinkedList.add(l2.get(0));
+                l2.remove(0);
+
+            }
+        }
+        while (l1.size > 0) {
+            myMergedLinkedList.add(l1.get(0));
+            l1.remove(0);
+        }
+        while (l2.size > 0) {
+            myMergedLinkedList.add(l2.get(0));
+            l2.remove(0);
+        }
+        return myMergedLinkedList;
+        }
+    }
+
+
